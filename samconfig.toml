@@ -1,0 +1,9 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "lambda-demo-rust"
+s3_prefix = "lambda-demo-rust"
+region = "ap-southeast-2"
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
