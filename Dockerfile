@@ -1,4 +1,4 @@
-FROM arm64v8/amazonlinux:2 as BUILD
+FROM amazonlinux:2 as BUILD
 RUN yum -y install gcc
 RUN curl https://static.rust-lang.org/rustup/dist/aarch64-unknown-linux-gnu/rustup-init --output rustup-init
 RUN chmod +x ./rustup-init
@@ -8,7 +8,7 @@ COPY . .
 RUN $HOME/.cargo/bin/cargo build --release
 
 
-FROM amazonlinux:2 as RUN
+FROM public.ecr.aws/sam/build-provided.al2:latest as RUN
 WORKDIR /app
 COPY --from=BUILD /app/target/release/rust_lambda .
 CMD ["./rust_lambda"]
