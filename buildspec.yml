@@ -10,9 +10,9 @@ phases:
     commands:
       - echo Build stage
       - docker build -t rust-lambda-demo:latest .
-      - docker tag rust-lambda-demo:latest 476915837476915837883.dkr.ecr.ap-southeast-2.amazonaws.com/rust-lambda-demo:latest
+      - docker tag rust-lambda-demo:latest 476915837883.dkr.ecr.ap-southeast-2.amazonaws.com/rust-lambda-demo:latest
   post_build:
     commands:
       - echo Build completed
       - echo pushing
-      - docker push 476915837476915837883.dkr.ecr.ap-southeast-2.amazonaws.com/rust-lambda-demo:latest
+      - docker push 476915837883.dkr.ecr.ap-southeast-2.amazonaws.com/rust-lambda-demo:latest
